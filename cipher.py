@@ -35,27 +35,30 @@ while choice.lower() != "q":
             print("================================================")
 
             shift = input("Enter cipher shift (1-25): ")
-            # Check if shift is an integer: IF STATEMENT IS NOT WORKING ????????????????????????????????????????
-            if shift.isnumeric == False:
+            while shift.isnumeric() == False:
                 print("shift must be a whole number")
                 shift = input("Enter cipher shift (1-25): ")
 
-            message = input("Enter message to be enciphered: ")
+            message = input("Enter message to be enciphered(without punctuation): ")
             newMessage = ""
 
             print("Selected shift: ", shift)
             print("Message: " + message)
 
-
-            # For all letters: 
-            # Check if valid #
-            # newLetter = (ord(letter) - 96 + shift)
-
             for i in message:
-                newVal  = (ord(i) - 96 + shift)
-                print(newVal)
+                if i == " ":
+                    newVal = i
+                elif i.isnumeric():
+                    newVal = str((int(i) + int(shift)) % 10)
+                else:
+                    value = (ord(i) - 97 + int(shift)) % 26
+                    newVal = chr(value + 97)
+                newMessage += newVal
 
-            print(newMessage)
+            print("Cipher: " + newMessage)
+            choice = input('Enter "Q" to quit or any letter to return to the main menu: ')
+            if choice.lower() == "q":
+                print("Exiting Cipher Toolkit...")
     elif choice == "2":
         print("\n")
         print("DeCipher Menu")
@@ -74,33 +77,3 @@ while choice.lower() != "q":
         print("Exiting Cipher Toolkit...")
     else:
         print("Please enter a valid option by typing the number of the menu option you would like to choose")
-
-
-    # print("================================================")
-    # print("================================================")
-    # print("=                CaesarCipher                  =")
-    # print("================================================")
-    # print("================================================")
-
-    # shift = input("Enter cipher shift (1-25): ")
-    # # Check if shift is an integer: IF STATEMENT IS NOT WORKING ????????????????????????????????????????
-    # if shift.isnumeric == False:
-    #     print("shift must be a whole number")
-    #     shift = input("Enter cipher shift (1-25): ")
-
-    # message = input("Enter message to be enciphered: ")
-    # newMessage = ""
-
-    # print("Selected shift: ", shift)
-    # print("Message: " + message)
-
-
-    # # For all letters: 
-    # # Check if valid #
-    # # newLetter = (ord(letter) - 96 + shift)
-
-    # for i in message:
-    #     newVal  = (ord(i) - 96 + shift)
-    #     print(newVal)
-
-    # print(newMessage)

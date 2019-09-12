@@ -5,7 +5,7 @@ Main Menu:
 3. Crack
 
 Encipher Menu:
-1. Caesar Cipher
+1. Caesar Cipher -- Complete
 2. Playfair Cipher
 3. Vigenere Cipher
 4. Transposition Cipher
