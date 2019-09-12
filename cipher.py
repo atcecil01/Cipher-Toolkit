@@ -51,7 +51,7 @@ while choice.lower() != "q":
                 elif i.isnumeric():
                     newVal = str((int(i) + int(shift)) % 10)
                 else:
-                    value = (ord(i) - 97 + int(shift)) % 26
+                    value = (ord(i.lower()) - 97 + int(shift)) % 26
                     newVal = chr(value + 97)
                 newMessage += newVal
 
@@ -70,7 +70,38 @@ while choice.lower() != "q":
         print("5. One Time Pad -- UNDER DEVELOPMENT")
         print("\n")
         decipherChoice = input("Enter a number to select a cipher: ")
-        # if decipherChoice == "1"
+        if decipherChoice == "1":
+            print("================================================")
+            print("================================================")
+            print("=            CaesarCipher  Decipher            =")
+            print("================================================")
+            print("================================================")
+
+            shift = input("Enter decipher shift (1-25): ")
+            while shift.isnumeric() == False:
+                print("shift must be a whole number")
+                shift = input("Enter decipher shift (1-25): ")
+
+            message = input("Enter message to be deciphered(without punctuation): ")
+            newMessage = ""
+
+            print("Selected shift: ", shift)
+            print("Message: " + message)
+
+            for i in message:
+                if i == " ":
+                    newVal = i
+                elif i.isnumeric():
+                    newVal = str((int(i) - int(shift)) % 10)
+                else:
+                    value = (ord(i) - 97 - int(shift)) % 26
+                    newVal = chr(value + 97)
+                newMessage += newVal
+
+            print("Cipher: " + newMessage)
+            choice = input('Enter "Q" to quit or any letter to return to the main menu: ')
+            if choice.lower() == "q":
+                print("Exiting Cipher Toolkit...")
     elif choice == "3":
         print("This option is still under development")
     elif choice.lower() == "q":
