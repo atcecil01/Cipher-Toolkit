@@ -19,12 +19,4 @@ Decipher Menu:
 5. One Time Pad
 
 Crack Menu:
-1. 
-
-Caesar Cypher displaces characters by a certain # of characters
-to hide the original message.
-
-https://www.hackingloops.com/coding-projects/
-
--Create a program to automatically apply a caesar cypher to a message
--Create a program to break the cypher
+1. Under Development
